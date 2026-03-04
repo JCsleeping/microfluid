@@ -1,0 +1,31 @@
+function rgb = load_frame(idx, frame_index)
+% LOAD_FRAME  Load a single frame on-demand from a TIF file.
+%
+%   rgb = load_frame(idx, frame_index)
+%
+%   Inputs:
+%       idx         - Frame index (1-based, into frame_index)
+%       frame_index - Struct array with fields:
+%                       .tif_path  - path to the TIF file
+%                       .page      - page number within that TIF
+%
+%   Output:
+%       rgb - uint8 RGB image (M x N x 3)
+
+    tif_path = frame_index(idx).tif_path;
+    page_num = frame_index(idx).page;
+
+    img = imread(tif_path, page_num);
+
+    % Handle 16-bit -> 8-bit
+    if isa(img, 'uint16')
+        img = im2uint8(img);
+    end
+
+    % Handle grayscale -> RGB
+    if size(img, 3) == 1
+        img = repmat(img, [1 1 3]);
+    end
+
+    rgb = img;
+end

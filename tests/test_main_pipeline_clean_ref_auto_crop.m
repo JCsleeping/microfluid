@@ -1,0 +1,23 @@
+function tests = test_main_pipeline_clean_ref_auto_crop
+% Regression tests for clean-reference flow-domain preprocessing behavior.
+    tests = functiontests(localfunctions);
+end
+
+
+function test_clean_ref_handles_empty_manual_crop_rect(testCase)
+% Reproduces a crash where manual_crop_rect=[] caused index errors.
+    root_dir = fileparts(fileparts(mfilename('fullpath')));
+    addpath(genpath(root_dir));
+
+    config = config_pipeline( ...
+        'preprocess.manual_crop_rect', [], ...
+        'illumination.kernel_size', 50, ...
+        'visualization.show_figures', false, ...
+        'visualization.save_figures', false, ...
+        'flow_domain_crop_rect', [1 1 2447 2047], ...
+        'pages', [1 2], ...
+        'output_path', fullfile(tempdir, ['dnapl_test_' datestr(now, 'yyyymmdd_HHMMSSFFF')]));
+
+    results = main_DNAPL_pipeline(config);
+    verifyTrue(testCase, isfield(results, 'flow_domain'));
+end

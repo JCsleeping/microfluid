@@ -1,0 +1,32 @@
+# MATLAB
+*.asv
+*.m~
+*.mat
+*.fig
+*.slx
+*.mdl
+
+# Output directories
+output_*/
+
+# Data (too large for repo)
+01 databased/
+02 Chip images/
+03 Fluid Properties/
+data/
+
+# Office temp files
+~$*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python cache (from helper scripts)
+__pycache__/
+*.pyc
