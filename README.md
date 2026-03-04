@@ -211,10 +211,12 @@ config.visualization.save_figures = true;
 
 | Document | Language | Description |
 |----------|----------|-------------|
-| [技术报告.md](技术报告.md) | Chinese | Full technical report with algorithms and equations |
-| [使用指南.md](使用指南.md) | Chinese | User guide with step-by-step instructions |
-| [分割方法技术讨论.md](分割方法技术讨论.md) | Chinese | In-depth segmentation method analysis |
-| [ISSUES.md](ISSUES.md) | Chinese | Version history, changelog, known issues |
+| [技术报告.md](docs/技术报告.md) | Chinese | Full technical report with algorithms and equations |
+| [使用指南.md](docs/使用指南.md) | Chinese | User guide with step-by-step instructions |
+| [分割方法技术讨论.md](docs/分割方法技术讨论.md) | Chinese | In-depth segmentation method analysis |
+| [ISSUES.md](docs/ISSUES.md) | Chinese | Version history and known issues |
+| [CHANGELOG.md](CHANGELOG.md) | English | Version changelog (Keep a Changelog format) |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | English | Contribution guidelines and code style |
 
 ---
 
